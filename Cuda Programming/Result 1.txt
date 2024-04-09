@@ -1,0 +1,101 @@
+## 0 0 0 0 2 2 2 2 
+  THREAD x=0  THREAD y=0 i=0 
+  THREAD x=1  THREAD y=0 i=0
+  THREAD x=0  THREAD y=1 i=0
+  THREAD x=1  THREAD y=1 i=0
+  THREAD x=0  THREAD y=0 i=2
+  THREAD x=1  THREAD y=0 i=2
+  THREAD x=0  THREAD y=1 i=2
+  THREAD x=1  THREAD y=1 i=2
+
+## 0 0 0 0 2 2 2 2 
+  THREAD x=0  THREAD y=0 i=0 
+  THREAD x=1  THREAD y=0 i=0
+  THREAD x=0  THREAD y=1 i=0
+  THREAD x=1  THREAD y=1 i=0
+
+  THREAD x=0  THREAD y=0 i=2
+  THREAD x=1  THREAD y=0 i=2
+  THREAD x=0  THREAD y=1 i=2
+  THREAD x=1  THREAD y=1 i=2
+
+
+
+BLOCK x=0 y=0 THREAD x=0 y=0 col=0 row=0 c_index=0
+
+First Loop
+i=0       i=2 
+
+Second Loop
+j=0 j=1,  j=0 j=1
+
+int index1 = 0;
+int index2 = 0;
+
+int index3 = 0;
+int index4 = 0;
+
+col=0 row=0
+
+s_a[threadIdx.y * blockDim.x + threadIdx.x] = a[row * N + i + threadIdx.x];
+s_b[threadIdx.y * blockDim.x + threadIdx.x] = b[i * N + threadIdx.y * N + col];
+
+
+int index1 = 0;
+int index2 = 0;
+
+int index3 = 1;
+int index4 = 4;
+
+col=0 row=0
+
+s_a[threadIdx.y * blockDim.x + threadIdx.x] = a[row * N + i + threadIdx.x];
+s_b[threadIdx.y * blockDim.x + threadIdx.x] = b[i * N + threadIdx.y * N + col];
+
+
+
+
+BLOCK x=0 y=0 THREAD x=0 y=1 col=0 row=0 c_index=0
+
+First Loop
+i=0       i=2 
+
+Second Loop
+j=0 j=1,  j=0 j=1
+
+int index1 = 0;
+int index2 = 0;
+
+int index3 = 0;
+int index4 = 0;
+
+col=0 row=1
+
+s_a[threadIdx.y * blockDim.x + threadIdx.x] = a[row * N + i + threadIdx.x];
+s_b[threadIdx.y * blockDim.x + threadIdx.x] = b[i * N + threadIdx.y * N + col];
+
+
+
+
+
+
+
+ BLOCK x=0 y=0 THREAD x=0 y=0 col=0 row=0 c_index=0
+ BLOCK x=0 y=0 THREAD x=1 y=0 col=1 row=0 c_index=1
+ BLOCK x=0 y=0 THREAD x=0 y=1 col=0 row=1 c_index=4
+ BLOCK x=0 y=0 THREAD x=1 y=1 col=1 row=1 c_index=5
+
+ BLOCK x=1 y=0 THREAD x=0 y=0 col=2 row=0 c_index=2
+ BLOCK x=1 y=0 THREAD x=1 y=0 col=3 row=0 c_index=3
+ BLOCK x=1 y=0 THREAD x=0 y=1 col=2 row=1 c_index=6
+ BLOCK x=1 y=0 THREAD x=1 y=1 col=3 row=1 c_index=7
+
+ BLOCK x=1 y=1 THREAD x=0 y=0 col=2 row=2 c_index=10
+ BLOCK x=1 y=1 THREAD x=1 y=0 col=3 row=2 c_index=11
+ BLOCK x=1 y=1 THREAD x=0 y=1 col=2 row=3 c_index=14
+ BLOCK x=1 y=1 THREAD x=1 y=1 col=3 row=3 c_index=15
+
+ BLOCK x=0 y=1 THREAD x=0 y=0 col=0 row=2 c_index=8
+ BLOCK x=0 y=1 THREAD x=1 y=0 col=2 row=2 c_index=12
+ BLOCK x=0 y=1 THREAD x=0 y=1 col=0 row=2 c_index=9
+ BLOCK x=0 y=1 THREAD x=1 y=1 col=1 row=3 c_index=13

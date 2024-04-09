@@ -1,0 +1,62 @@
+## 0 0 0 0 2 2 2 2 
+  THREAD x=0  THREAD y=0 i=0 
+  THREAD x=1  THREAD y=0 i=0
+  THREAD x=0  THREAD y=1 i=0
+  THREAD x=1  THREAD y=1 i=0
+
+  THREAD x=0  THREAD y=0 i=2
+  THREAD x=1  THREAD y=0 i=2
+  THREAD x=0  THREAD y=1 i=2
+  THREAD x=1  THREAD y=1 i=2
+
+
+
+BLOCK x=0 y=0 THREAD x=0 y=0 col=0 row=0 c_index=0
+
+First Loop
+i=0       i=2 
+
+Second Loop
+j=0 j=1,  j=0 j=1
+
+int index1 = 0;
+int index2 = 0;
+
+int index3 = 0;
+int index4 = 0;
+
+col=0 row=0
+
+s_a[threadIdx.y * blockDim.x + threadIdx.x] = a[row * N + i + threadIdx.x];
+s_b[threadIdx.y * blockDim.x + threadIdx.x] = b[i * N + threadIdx.y * N + col];
+
+
+BLOCK x=0 y=0 THREAD x=0 y=1 col=0 row=0 c_index=0
+
+First Loop
+i=0       i=2 
+
+Second Loop
+j=0 j=1,  j=0 j=1
+
+int index1 = 0;
+int index2 = 0;
+
+int index3 = 4;
+int index4 = 0;
+
+col=0 row=1
+
+s_a[threadIdx.y * blockDim.x + threadIdx.x] = a[row * N + i + threadIdx.x];
+s_b[threadIdx.y * blockDim.x + threadIdx.x] = b[i * N + threadIdx.y * N + col];
+
+
+
+
+
+
+
+a=1 b=5  a=7 b=1  a=4 b=2  a=0 b=8
+
+
+
